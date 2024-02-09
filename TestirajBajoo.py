@@ -27,7 +27,7 @@ labels_dict = {0: '0',
                10: '+',
                11: '=',
                12: '?',
-               13: '!'}
+               13: '?'}
 
 frame_counter = 0
 input_sequence = []
@@ -44,7 +44,7 @@ while True:
     cv.imshow("slika", slika2)
     cv.waitKey(25)
 
-    if frame_counter % 30 == 0:
+    if frame_counter % 35 == 0:
         if results.multi_hand_landmarks:
             for hand_landmarks in results.multi_hand_landmarks:
                 mp_drawing.draw_landmarks(
@@ -78,8 +78,8 @@ while True:
         current_input = ''.join(input_sequence)
         print(current_input)
 
-        if current_input.endswith('!'):
-            print("DZONI VOLIM TE!! <333333")
+        if current_input.endswith('?'):
+            print("DZONI BIL ME KRSTIO? <3333")
 
         if current_input.endswith('='):
             result = eval(current_input[:-1])
