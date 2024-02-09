@@ -69,11 +69,11 @@ while True:
                 prediction = model.predict([np.asarray(data_aux)])
 
                 predicted_number = labels_dict[int(prediction[0])]
-                print(predicted_number)
 
                 input_sequence.append(predicted_number)
 
         current_input = ''.join(input_sequence)
+        print(current_input)
 
         if current_input.endswith('='):
             result = eval(current_input[:-1])
