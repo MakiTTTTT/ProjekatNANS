@@ -9,4 +9,4 @@ Napraviti program koji ce omoguciti pravljenje novih programa putem inputa ruku.
 
 
 
-Kod je slobodno skidati, modifikovati 
+Otvoren sam za sve ideje, sugestije i primedbe, napravite slobodno pull request i mozemo kolaborirati.
