@@ -24,7 +24,10 @@ labels_dict = {0: '0',
                7: '7',
                8: '8',
                9: '9',
-               10: '+'}
+               10: '+',
+               11: '=',
+               12: '?',
+               13: '!'}
 
 frame_counter = 0
 input_sequence = []
@@ -41,11 +44,11 @@ while True:
     cv.imshow("slika", slika2)
     cv.waitKey(25)
 
-    if frame_counter % 20 == 0:
+    if frame_counter % 30 == 0:
         if results.multi_hand_landmarks:
             for hand_landmarks in results.multi_hand_landmarks:
                 mp_drawing.draw_landmarks(
-                    slika,
+                    slika2,
                     hand_landmarks,
                     mp_hands.HAND_CONNECTIONS,
                     mp_drawing_styles.get_default_hand_landmarks_style(),
@@ -68,17 +71,20 @@ while True:
 
                 prediction = model.predict([np.asarray(data_aux)])
 
-                predicted_number = labels_dict[int(prediction[0])]
+                predicted_character = labels_dict[int(prediction[0])]
 
-                input_sequence.append(predicted_number)
+                input_sequence.append(predicted_character)
 
         current_input = ''.join(input_sequence)
         print(current_input)
 
+        if current_input.endswith('!'):
+            print("DZONI VOLIM TE!! <333333")
+
         if current_input.endswith('='):
             result = eval(current_input[:-1])
             print(f"Rezultat: {result}")
-            input_sequence.clear()
+            break
 
     frame_counter += 1
 

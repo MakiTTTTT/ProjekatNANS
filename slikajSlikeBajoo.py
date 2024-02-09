@@ -19,7 +19,7 @@ hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.3)
 
 cap = cv.VideoCapture(0)
 
-for j in range(broj_prstiju):
+for j in range(13, broj_prstiju):
     if not os.path.exists(os.path.join(DIR_PATH, 'PRST_BROJ_', str(j))):
         os.makedirs(os.path.join(DIR_PATH, 'PRST_BROJ_', str(j)))
 
@@ -35,8 +35,8 @@ for j in range(broj_prstiju):
         key = cv.waitKey(1) & 0xFF
         if key == ord('p') or key == ord('P'):
             print("Snimanje pocinje za 3 sekunde...")
-            start_time = time.time()  # Reset the start time
-            capture_started = True  # Set the flag to indicate capture has started
+            start_time = time.time()
+            capture_started = True
         elif time.time() - start_time >= 3 and capture_started:
             print("Snimanje je pocelo!")
             break
@@ -76,8 +76,8 @@ for j in range(broj_prstiju):
         key = cv.waitKey(1) & 0xFF
         if key == ord('p') or key == ord('P'):
             print("Snimanje pocinje za 3 sekunde...")
-            start_time = time.time()  # Reset the start time
-            capture_started = True  # Set the flag to indicate capture has started
+            start_time = time.time()
+            capture_started = True
         elif time.time() - start_time >= 3 and capture_started:
             print("Snimanje je pocelo!")
             break
